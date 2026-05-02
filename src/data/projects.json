@@ -1,0 +1,11 @@
+[
+  {
+    "id": 1,
+    "title": "Personal Portfolio Website",
+    "image":"https://res.cloudinary.com/dciukudyh/image/upload/v1766485244/portfolio_images/Screenshot%202025-12-23%20155000.png",
+    "description": "A highly interactive, modern portfolio website built to showcase personal branding, skills, and past projects with dynamic animations.",
+    "tech": ["Mongo DB","Express JS","React JS","Node Js","Email JS"],
+    "demoUrl": "https://adithyan-phi.vercel.app/",
+    "codeUrl": "https://github.com/Adithyan121/Portfolio.git"
+  }
+]

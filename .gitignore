@@ -1,0 +1,46 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+build/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Environment variables (CRITICAL)
+.env
+.env.*
+!.env.example
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE / Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Vite specific
+vite.svg
+
+# TypeScript
+*.tsbuildinfo
+
+# Testing
+coverage/
+
+# Optional cache
+.cache/
+.temp/
+
+# Lock files (optional - usually keep them)
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml

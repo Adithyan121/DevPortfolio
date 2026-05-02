@@ -1,0 +1,92 @@
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 800px;
+  margin: 3rem auto 0;
+  position: relative;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 30px;
+  width: 2px;
+  background: var(--border);
+  z-index: 0;
+}
+
+.stepCard {
+  background-color: rgba(5, 5, 5, 0.6);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 1;
+  margin-left: 60px;
+}
+
+.iconContainer {
+  position: absolute;
+  left: -60px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 60px;
+  display: flex;
+  justify-content: center;
+}
+
+.iconContainer > svg {
+  background-color: var(--bg-secondary);
+  padding: 0.5rem;
+  border-radius: 50%;
+  border: 2px solid var(--accent);
+  color: var(--accent);
+  width: 40px;
+  height: 40px;
+}
+
+.stepTitle {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.stepDesc {
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+@media (min-width: 768px) {
+  .timeline {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1rem;
+    margin-top: 4rem;
+  }
+  
+  .timeline::before {
+    top: 30px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    width: 100%;
+    bottom: auto;
+  }
+
+  .stepCard {
+    margin-left: 0;
+    padding: 1.5rem;
+    padding-top: 4rem;
+  }
+
+  .iconContainer {
+    left: 50%;
+    top: 30px;
+    transform: translateX(-50%) translateY(-50%);
+  }
+}
