@@ -1,0 +1,16 @@
+{
+  "name": "Adithyan - Freelance Web Developer",
+  "short_name": "Adithyan Dev",
+  "description": "Professional freelance web developer specializing in MERN stack development. Custom websites and web applications.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#050509",
+  "theme_color": "#3b82f6",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

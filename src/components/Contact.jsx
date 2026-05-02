@@ -82,7 +82,7 @@ const Contact = () => {
             
             <div className={styles.socialLinks}>
               <a href="#" className={styles.socialLink}>LinkedIn</a>
-              <a href="#" className={styles.socialLink}>Twitter</a>
+              <a href="#" className={styles.socialLink}>Instagram</a>
               <a href="#" className={styles.socialLink}>GitHub</a>
             </div>
           </motion.div>

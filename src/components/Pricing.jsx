@@ -7,21 +7,21 @@ import sectionStyles from './Sections.module.css';
 const Pricing = () => {
   const plans = [
     {
-      name: "Starter Landing Page",
+      name: "Affordable Landing Page",
       price: "₹5,000",
-      features: ["Single Page Responsive Design", "Contact Form Integration", "Basic SEO Setup", "1 Week Delivery"],
+      features: ["Single Page Responsive Design", "Contact Form Integration", "Basic SEO Setup", "1 Week Delivery", "Ideal for startups & freelancers"],
       isPopular: false
     },
     {
-      name: "Business Website",
+      name: "Small Business Website",
       price: "₹10,000",
-      features: ["Up to 5 Pages", "Custom UI/UX Design", "Performance Optimization", "Content Management System", "2-3 Weeks Delivery"],
+      features: ["Up to 5 Pages", "Custom UI/UX Design", "Performance Optimization", "Content Management System", "2-3 Weeks Delivery", "Perfect for restaurants, gyms & real estate"],
       isPopular: true
     },
     {
-      name: "Custom Website",
+      name: "Custom React Web App",
       price: "Custom Quote",
-      features: ["Unlimited Pages", "Complex Animations (Three.js)", "Custom Functionality", "Premium Support", "Timeline TBD"],
+      features: ["Unlimited Pages & Features", "MERN Stack Development", "Complex Animations & Interactions", "Premium Support", "Timeline TBD", "For enterprise & complex projects"],
       isPopular: false
     }
   ];
@@ -31,9 +31,9 @@ const Pricing = () => {
       <div className="container">
         <div className={sectionStyles.contentWrapper}>
           <span className={sectionStyles.badge}>Investment</span>
-          <h2 className={sectionStyles.title}>Transparent Pricing Hints</h2>
+          <h2 className={sectionStyles.title}>Affordable Website Development Pricing</h2>
           <p className={sectionStyles.description}>
-            Clear, upfront pricing to help you plan your project budget.
+            Budget-friendly rates for React and MERN stack development. Transparent pricing for startups, small businesses, and freelancers in Kerala and India.
           </p>
         </div>
 
@@ -71,7 +71,7 @@ const Pricing = () => {
         </div>
 
         <p className={styles.pricingNote}>
-          * Final pricing depends on project requirements, pages, features, and timeline.
+          * Rates applicable for Kerala and India. Final pricing depends on project requirements, pages, features, and timeline. Contact for affordable custom quotes.
         </p>
       </div>
     </section>

@@ -16,13 +16,13 @@ const Hero = () => {
           transition={{ duration: 0.8 }}
         >
           <span className={styles.badge}>
-            Freelance Full Stack Developer
+            React Developer | MERN Stack | Kerala, India
           </span>
           <h1 className={styles.headline}>
-            I Build Fast, Modern <span className={styles.textPurple}>Web Applications</span> That Help You Grow
+            Affordable <span className={styles.textPurple}>React Developer</span> & MERN Stack Expert in Kerala
           </h1>
           <p className={styles.subheadline}>
-            Full stack web solutions using the MERN stack. Clean code, modern design, and scalable applications.
+            Freelance web developer specializing in custom website development for startups, small businesses, restaurants, gyms & real estate. Full stack solutions using React, Node.js, and MongoDB at budget-friendly rates.
           </p>
           
           <div className={styles.actions}>

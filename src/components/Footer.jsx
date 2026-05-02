@@ -30,9 +30,12 @@ const Footer = () => {
             
             <div className={styles.linkGroup}>
               <h4>Connect</h4>
-              <a href="https://www.linkedin.com/in/adithyan-g-b9785b196/">LinkedIn</a>
-              <a href="https://www.instagram.com/mr._a.d.i__/">Instagram</a>
-              <a href="https://github.com/Adithyan121">GitHub</a>
+              <a href="https://adithyan-phi.vercel.app/" target="_blank" rel="noopener noreferrer">Portfolio</a>
+              <a href="https://dev.to/adithyan_g_6f3e606905eed7" target="_blank" rel="noopener noreferrer">Dev.to</a>
+              <a href="https://medium.com/@adithyang24" target="_blank" rel="noopener noreferrer">Medium</a>
+              <a href="https://www.linkedin.com/in/adithyan-g-b9785b196/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+              <a href="https://www.instagram.com/mr._a.d.i__/" target="_blank" rel="noopener noreferrer">Instagram</a>
+              <a href="https://github.com/Adithyan121" target="_blank" rel="noopener noreferrer">GitHub</a>
               <Link to="/contact">Contact</Link>
             </div>
           </div>

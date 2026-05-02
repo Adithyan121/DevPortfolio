@@ -14,7 +14,7 @@ const Services = () => {
     },
     {
       title: "Portfolio Website",
-      description: "Beautiful digital portfolios to showcase your work, tailored specifically for creatives and freelancers."
+      description: "Beautiful digital portfolios for creatives and freelancers. Perfect for showcasing your work and landing clients."
     },
     {
       title: "Website Redesign",
@@ -22,10 +22,18 @@ const Services = () => {
     },
     {
       title: "Responsive UI Development",
-      description: "Pixel-perfect frontend development ensuring your site looks stunning on mobile, tablet, and desktop."
+      description: "Pixel-perfect frontend development using React. Ensuring your site looks stunning on mobile, tablet, and desktop."
     },
     {
-      title: "Basic SEO & Performance Optimization",
+      title: "Startup & Small Business Websites",
+      description: "Affordable website solutions for startups, small businesses, restaurants, gyms, and real estate agencies in Kerala."
+    },
+    {
+      title: "React & MERN Stack Development",
+      description: "Full stack development using React, Node.js, and MongoDB. Custom web applications for your business needs."
+    },
+    {
+      title: "SEO & Performance Optimization",
       description: "Implementation of best practices to ensure your site ranks better on Google and loads in milliseconds."
     }
   ];
@@ -35,9 +43,9 @@ const Services = () => {
       <div className="container">
         <div className={styles.contentWrapper}>
           <span className={styles.badge}>Services</span>
-          <h2 className={styles.title}>What I Can Do For You</h2>
+          <h2 className={styles.title}>Affordable Web Development Solutions</h2>
           <p className={styles.description}>
-            Comprehensive web solutions focused on modern design, robust performance, and achieving your business goals.
+            React and MERN stack development for startups, small businesses, restaurants, gyms, and real estate. High-quality websites at budget-friendly rates in Kerala and India.
           </p>
         </div>
 
