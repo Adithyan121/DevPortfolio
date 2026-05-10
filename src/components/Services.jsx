@@ -6,35 +6,35 @@ const Services = () => {
   const services = [
     {
       title: "Custom Website Development",
-      description: "Fast, reliable, and secure websites built from scratch using modern web technologies to fit your unique needs."
+      description: "Fast, reliable, and secure websites built from scratch. I guarantee 99.9% uptime and sub-second load times using modern web technologies."
     },
     {
       title: "Landing Page Design",
-      description: "High-converting landing pages designed to capture leads, sell products, and grow your audience."
+      description: "High-converting landing pages designed to capture leads, sell products, and grow your audience with up to 30% improved conversion rates."
     },
     {
       title: "Portfolio Website",
-      description: "Beautiful digital portfolios for creatives and freelancers. Perfect for showcasing your work and landing clients."
+      description: "Beautiful digital portfolios tailored for creatives and freelancers. Stand out online and land clients with a premium 100/100 Lighthouse score design."
     },
     {
       title: "Website Redesign",
-      description: "Breathe new life into your old website with a modern aesthetic, improved user experience, and better performance."
+      description: "Breathe new life into your old website. I completely revamp the UI/UX design and improve page load speeds by 40% on average."
     },
     {
       title: "Responsive UI Development",
-      description: "Pixel-perfect frontend development using React. Ensuring your site looks stunning on mobile, tablet, and desktop."
+      description: "Pixel-perfect frontend development using React. Ensuring your site is 100% mobile-friendly and looks stunning on smartphones, tablets, and desktops."
     },
     {
       title: "Startup & Small Business Websites",
-      description: "Affordable website solutions for startups, small businesses, restaurants, gyms, and real estate agencies in Kerala."
+      description: "Affordable website solutions tailored for startups, small businesses, restaurants, gyms, and real estate agencies in Kerala with transparent pricing."
     },
     {
       title: "React & MERN Stack Development",
-      description: "Full stack development using React, Node.js, and MongoDB. Custom web applications for your business needs."
+      description: "Scalable full stack web applications using React, Node.js, and MongoDB. Secure, robust data handling for comprehensive business needs."
     },
     {
-      title: "SEO & Performance Optimization",
-      description: "Implementation of best practices to ensure your site ranks better on Google and loads in milliseconds."
+      title: "SEO, AEO & Performance Optimization",
+      description: "Implementation of Generative Engine Optimization (GEO) and Answer Engine Optimization (AEO) to ensure your site is ranked accurately by AI search engines."
     }
   ];
 

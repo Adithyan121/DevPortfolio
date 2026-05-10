@@ -25,16 +25,25 @@ const About = () => {
     border: '1px solid var(--border)' 
   }}
 >
-  <p className={styles.description} style={{ marginBottom: '1.5rem' }}>
-    I'm Adithyan G, a freelance React and MERN stack developer based in Kerala, India. I specialize in building affordable, high-quality websites and web applications for startups, small businesses, restaurants, gyms, real estate agencies, and freelancers.
-  </p>
+  <div style={{ marginBottom: '2rem' }}>
+    <h3 style={{ color: 'var(--text)', fontSize: '1.5rem', marginBottom: '1rem' }}>Who am I?</h3>
+    <p className={styles.description} style={{ marginBottom: '1.5rem' }}>
+      <strong>I'm Adithyan G, a freelance React and MERN stack developer based in Kerala, India.</strong> I specialize in building affordable, high-quality websites and web applications for startups, small businesses, restaurants, gyms, real estate agencies, and freelancers.
+    </p>
+  </div>
 
-  <p className={styles.description} style={{ marginBottom: '1.5rem' }}>
-    With expertise in React, Node.js, MongoDB, and Express.js, I create fast, modern, and responsive websites that deliver results. My goal is to bring agency-level quality to small businesses and creators at budget-friendly rates. I believe that a website shouldn't just be a digital flyer; it should be an interactive experience that builds trust and drives business growth.
-  </p>
+  <div style={{ marginBottom: '2rem' }}>
+    <h3 style={{ color: 'var(--text)', fontSize: '1.5rem', marginBottom: '1rem' }}>Why hire me as your web developer?</h3>
+    <ul style={{ color: 'var(--text-muted)', listStyleType: 'disc', paddingLeft: '1.5rem', marginBottom: '1.5rem', lineHeight: '1.8' }}>
+      <li><strong>Full Stack Expertise:</strong> Proficient in React, Node.js, MongoDB, and Express.js to deliver scalable end-to-end web solutions.</li>
+      <li><strong>Performance Focused:</strong> I build fast, modern, and responsive websites targeting 100/100 Lighthouse scores and sub-second load times.</li>
+      <li><strong>Budget-Friendly:</strong> Bringing agency-level quality to small businesses and creators without the massive agency price tag.</li>
+      <li><strong>Dedicated Partnership:</strong> You get a single, reliable point of contact focused on delivering an interactive experience that builds trust and drives business growth.</li>
+    </ul>
+  </div>
 
   <p className={styles.description}>
-    When you hire me as your freelance web developer, you're getting a dedicated partner who cares about your project's success. Whether you need a portfolio website, business website, or custom web application, let's build something great together.
+    Whether you need a portfolio website, business website, or custom web application, let's build something great together.
   </p>
 </motion.div>
         </div>

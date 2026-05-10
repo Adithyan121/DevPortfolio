@@ -19,10 +19,10 @@ const Hero = () => {
             React Developer | MERN Stack | Kerala, India
           </span>
           <h1 className={styles.headline}>
-            Affordable <span className={styles.textPurple}>React Developer</span> & MERN Stack Expert in Kerala
+             I Build Fast, Modern <span className={styles.textPurple}>Web Applications</span> That Help You Grow
           </h1>
           <p className={styles.subheadline}>
-            Freelance web developer specializing in custom website development for startups, small businesses, restaurants, gyms & real estate. Full stack solutions using React, Node.js, and MongoDB at budget-friendly rates.
+            Freelance web developer specializing in custom website development for startups, small businesses, restaurants, gyms & real estate. I build full stack solutions using React, Node.js, and MongoDB that achieve <strong>100/100 Lighthouse performance scores</strong> and <strong>load in under 1 second</strong>, driving higher conversions at budget-friendly rates.
           </p>
           
           <div className={styles.actions}>

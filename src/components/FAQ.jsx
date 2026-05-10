@@ -44,28 +44,63 @@ const FAQItem = ({ question, answer }) => {
 const FAQ = () => {
   const faqs = [
     {
-      question: "How long does a website take?",
-      answer: "A standard landing page takes about 1-2 weeks. A comprehensive business website can take 2-4 weeks, depending on the complexity, features, and how quickly we finalize the design and content."
+      question: "How long does a website take to build?",
+      answer: (
+        <>
+          <p><strong>A standard website takes 1 to 2 weeks to build.</strong> A more complex web application or business website can take 2 to 4 weeks.</p>
+          <ul style={{ margin: '10px 0 10px 20px', listStyleType: 'disc' }}>
+            <li>Landing Pages: 1-2 weeks</li>
+            <li>Business Websites: 2-4 weeks</li>
+            <li>Custom Web Apps: 4+ weeks</li>
+          </ul>
+          <p>The timeline depends on the complexity, specific features required, and how quickly we finalize the design.</p>
+        </>
+      )
     },
     {
-      question: "Do you help with hosting and deployment?",
-      answer: "Yes! I can handle the entire deployment process. I typically recommend platforms like Vercel or Netlify for fast, secure, and reliable hosting."
+      question: "Do you help with website hosting and deployment?",
+      answer: (
+        <>
+          <p><strong>Yes, I handle the entire website hosting and deployment process.</strong> I typically recommend fast, secure cloud platforms like <strong>Vercel</strong> or <strong>Netlify</strong> for high performance (99.9% uptime).</p>
+          <p>I will configure your domain name, SSL certificates, and ensure your site is live and accessible globally.</p>
+        </>
+      )
     },
     {
-      question: "Can I request changes?",
-      answer: "Absolutely. My process includes a dedicated design revision phase where we tweak the look and feel until you are 100% satisfied before we move into development."
+      question: "Can I request changes during the web development process?",
+      answer: (
+        <>
+          <p><strong>Absolutely. I offer a dedicated design revision phase</strong> where we tweak the look and feel until you are 100% satisfied.</p>
+          <p>I ensure transparent communication throughout the project, meaning you are involved in every step from wireframing to the final code development.</p>
+        </>
+      )
     },
     {
-      question: "Do you build responsive websites?",
-      answer: "Every website I build is mobile-first and fully responsive, ensuring it looks perfect and functions flawlessly on smartphones, tablets, and desktops."
+      question: "Are the websites you build mobile-friendly and responsive?",
+      answer: (
+        <>
+          <p><strong>Yes, every website I build is 100% mobile-friendly and responsive.</strong></p>
+          <p>I use a mobile-first approach, ensuring your web application looks perfect and functions flawlessly across all devices, including smartphones, tablets, and desktop computers.</p>
+        </>
+      )
     },
     {
-      question: "How does payment work?",
-      answer: "I require a 50% upfront deposit to begin the project, with the remaining 50% due upon successful launch and hand-off of the website."
+      question: "What is your pricing and how does payment work?",
+      answer: (
+        <>
+          <p><strong>I require a 50% upfront deposit to start the project.</strong> The remaining 50% is due upon successful launch and project hand-off.</p>
+          <p>My pricing is budget-friendly and tailored to startups and small businesses. We will agree on a transparent, fixed price during the discovery phase with no hidden fees.</p>
+        </>
+      )
     },
     {
-      question: "Can you redesign my existing website?",
-      answer: "Yes, I specialize in taking outdated websites and completely revamping their design, performance, and user experience using modern technologies."
+      question: "Can you redesign or update my existing website?",
+      answer: (
+        <>
+          <p><strong>Yes, I specialize in website redesigns and performance optimization.</strong></p>
+          <p>If you have an outdated site, I will completely revamp the UI/UX design, improve page load speeds (targeting under 1 second), and upgrade the technology stack using modern React and Node.js.</p>
+        </>
+      )
     }
   ];
 
