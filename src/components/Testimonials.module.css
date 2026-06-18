@@ -1,0 +1,211 @@
+.testimonialSection {
+  padding: 6rem 0;
+}
+
+.heroBlock {
+  display: grid;
+  gap: 1.5rem;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.heroBlock h2 {
+  font-size: clamp(2rem, 3vw, 3rem);
+}
+
+.heroBlock p {
+  max-width: 700px;
+  margin: 0 auto;
+  color: var(--text-secondary);
+}
+
+.ctaRow {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.signedIn {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+.gridLayout {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: 1.3fr 1fr;
+  margin-bottom: 3rem;
+}
+
+.formCard,
+.previewCard,
+.testimonialCard,
+.adminCard {
+  background: rgba(17, 17, 17, 0.8);
+  border: 1px solid rgba(255,255,255,0.03);
+  border-radius: calc(var(--radius) - 2px);
+  padding: 1.6rem;
+}
+
+.formCard h3,
+.previewCard h3,
+.sectionHeading {
+  margin-bottom: 1rem;
+}
+
+.formCard form {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.formCard textarea {
+  min-height: 160px;
+}
+
+.formHint {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+.formCard input,
+.formCard textarea {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.04);
+}
+
+.formCard .btn-primary {
+  width: 100%;
+  padding: 0.9rem 1rem;
+  font-size: 1rem;
+}
+
+.starRating {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.starRating span {
+  font-size: 1.2rem;
+}
+
+.ratingOptions {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.ratingButton {
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  color: var(--text);
+  background: transparent;
+}
+
+.active {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+
+.testimonialsList {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.testimonialCard {
+  display: grid;
+  gap: 1rem;
+}
+
+.testimonialStars {
+  color: #facc15;
+  font-size: 1.15rem;
+}
+
+.quoteText {
+  font-size: 1.05rem;
+  line-height: 1.9;
+  color: var(--text-secondary);
+}
+
+.clientMeta {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: var(--text);
+}
+
+.clientAvatar {
+  min-width: 48px;
+  min-height: 48px;
+  border-radius: 999px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: #111;
+}
+
+.clientAvatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.clientDetails {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.clientName {
+  font-weight: 700;
+}
+
+.clientCompany {
+  color: var(--text-secondary);
+}
+
+.adminPanel {
+  margin-top: 3rem;
+}
+
+.adminPanel h3 {
+  margin-bottom: 1rem;
+}
+
+.adminCard {
+  display: grid;
+  gap: 1rem;
+}
+
+.adminMeta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.adminMeta p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+.adminAction {
+  justify-self: end;
+}
+
+.errorMessage {
+  color: #f87171;
+}
+
+.successMessage {
+  color: #34d399;
+}
+
+@media (max-width: 900px) {
+  .gridLayout {
+    grid-template-columns: 1fr;
+  }
+}

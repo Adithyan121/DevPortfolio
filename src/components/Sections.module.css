@@ -74,7 +74,8 @@
   margin-top: 4rem;
 }
 
-.problemBox, .solutionBox {
+.problemBox,
+.solutionBox {
   padding: 3rem;
   border-radius: var(--radius);
   border: 1px solid var(--border);
@@ -128,9 +129,11 @@
   .section {
     padding: 4rem 0;
   }
+
   .title {
     font-size: 2rem;
   }
+
   .psGrid {
     grid-template-columns: 1fr;
     gap: 2rem;

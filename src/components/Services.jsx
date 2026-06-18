@@ -51,11 +51,11 @@ const Services = () => {
 
         <div className={styles.cardsGrid}>
           {services.map((service, index) => (
-            <ServiceCard 
-              key={index} 
-              index={index} 
-              title={service.title} 
-              description={service.description} 
+            <ServiceCard
+              key={index}
+              index={index}
+              title={service.title}
+              description={service.description}
             />
           ))}
         </div>

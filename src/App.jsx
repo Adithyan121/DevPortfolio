@@ -9,11 +9,13 @@ const AudienceSection = lazy(() => import('./components/AudienceSection'));
 const ProblemSolution = lazy(() => import('./components/ProblemSolution'));
 const Services = lazy(() => import('./components/Services'));
 const Projects = lazy(() => import('./components/Projects'));
+const TestimonialsPreview = lazy(() => import('./components/TestimonialsPreview'));
 const Process = lazy(() => import('./components/Process'));
 const About = lazy(() => import('./components/About'));
 const Pricing = lazy(() => import('./components/Pricing'));
 const FAQ = lazy(() => import('./components/FAQ'));
 const Contact = lazy(() => import('./components/Contact'));
+const Testimonials = lazy(() => import('./components/Testimonials'));
 const PrivacyPolicy = lazy(() => import('./components/PrivacyPolicy'));
 const TermsOfService = lazy(() => import('./components/TermsOfService'));
 
@@ -32,6 +34,7 @@ const Home = () => (
       <Process />
       <About />
       <Pricing />
+      <TestimonialsPreview />
     </Suspense>
   </main>
 );
@@ -57,6 +60,11 @@ function App() {
         <Route path="/contact" element={
           <Suspense fallback={null}>
             <PageWrapper><Contact /></PageWrapper>
+          </Suspense>
+        } />
+        <Route path="/testimonials" element={
+          <Suspense fallback={null}>
+            <PageWrapper><Testimonials /></PageWrapper>
           </Suspense>
         } />
         <Route path="/privacy" element={

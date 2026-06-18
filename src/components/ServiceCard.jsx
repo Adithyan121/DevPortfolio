@@ -4,7 +4,7 @@ import styles from './Sections.module.css';
 
 const ServiceCard = ({ title, description, index }) => {
   return (
-    <motion.div 
+    <motion.div
       className="card"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}

@@ -8,13 +8,13 @@ const Pricing = () => {
   const plans = [
     {
       name: "Affordable Landing Page",
-      price: "₹5,000",
+      price: "₹8,000",
       features: ["Single Page Responsive Design", "Contact Form Integration", "Basic SEO Setup", "1 Week Delivery", "Ideal for startups & freelancers"],
       isPopular: false
     },
     {
       name: "Small Business Website",
-      price: "₹10,000",
+      price: "₹12,000",
       features: ["Up to 5 Pages", "Custom UI/UX Design", "Performance Optimization", "Content Management System", "2-3 Weeks Delivery", "Perfect for restaurants, gyms & real estate"],
       isPopular: true
     },
