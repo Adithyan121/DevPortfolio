@@ -21,104 +21,148 @@ import {
   doc,
 } from 'firebase/firestore';
 
-const ADMIN_EMAIL = import.meta.env.VITE_FIREBASE_ADMIN_EMAIL || 'admin@example.com';
+const ADMIN_EMAIL =
+  import.meta.env.VITE_FIREBASE_ADMIN_EMAIL || 'admin@example.com';
 
-const starText = (rating) => '⭐'.repeat(rating) || '⭐';
+const starText = (rating) => '⭐'.repeat(rating || 5);
 
 const Testimonials = () => {
   const [user, setUser] = useState(null);
   const [pending, setPending] = useState([]);
+
   const [name, setName] = useState('');
   const [company, setCompany] = useState('');
   const [message, setMessage] = useState('');
   const [rating, setRating] = useState(5);
+
   const [statusMessage, setStatusMessage] = useState('');
   const [statusType, setStatusType] = useState('');
   const [submitting, setSubmitting] = useState(false);
 
+  // Auth State Listener
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+
+      if (currentUser?.displayName) {
+        setName(currentUser.displayName);
+      }
+    });
+
+    return () => unsubscribe();
+  }, []);
+
+  // Admin Pending Testimonials Listener
   useEffect(() => {
     if (!user || user.email !== ADMIN_EMAIL) {
       setPending([]);
-      return undefined;
+      return;
     }
-    useEffect(() => {
-  const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-    setUser(currentUser);
-  });
-
-  return () => unsubscribe();
-}, []);
 
     const pendingQuery = query(
       collection(db, 'testimonials'),
       where('approved', '==', false),
-      orderBy('createdAt', 'desc'),
+      orderBy('createdAt', 'desc')
     );
 
-    return onSnapshot(pendingQuery, (snapshot) => {
-      setPending(snapshot.docs.map((docSnap) => {
-        return {
+    const unsubscribe = onSnapshot(
+      pendingQuery,
+      (snapshot) => {
+        const data = snapshot.docs.map((docSnap) => ({
           id: docSnap.id,
           ...docSnap.data(),
-        };
-      }));
-    });
+        }));
+
+        setPending(data);
+      },
+      (error) => {
+        console.error('Pending testimonials error:', error);
+      }
+    );
+
+    return () => unsubscribe();
   }, [user]);
 
   const handleSignIn = async () => {
     try {
       await signInWithPopup(auth, googleProvider);
+
       setStatusMessage('Signed in successfully.');
       setStatusType('success');
     } catch (error) {
-      setStatusMessage('Google sign-in failed. Please try again.');
+      console.error('Google Sign In Error:', error);
+
+      setStatusMessage(error.message);
       setStatusType('error');
     }
   };
 
   const handleSignOut = async () => {
-    await signOut(auth);
-    setStatusMessage('Signed out successfully.');
-    setStatusType('success');
+    try {
+      await signOut(auth);
+
+      setStatusMessage('Signed out successfully.');
+      setStatusType('success');
+    } catch (error) {
+      console.error(error);
+
+      setStatusMessage('Failed to sign out.');
+      setStatusType('error');
+    }
   };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+
     if (!user) {
-      setStatusMessage('Please sign in with Google before submitting your testimonial.');
+      setStatusMessage(
+        'Please sign in with Google before submitting your testimonial.'
+      );
       setStatusType('error');
       return;
     }
 
-    if (!message.trim() || !company.trim()) {
-      setStatusMessage('Please provide your company and a short testimonial.');
+    if (!company.trim() || !message.trim()) {
+      setStatusMessage(
+        'Please provide both company and testimonial.'
+      );
       setStatusType('error');
       return;
     }
-
-    setSubmitting(true);
-    setStatusMessage('Submitting your testimonial...');
-    setStatusType('');
 
     try {
+      setSubmitting(true);
+
       await addDoc(collection(db, 'testimonials'), {
-        name: name || user.displayName || 'Anonymous',
+        name:
+          name.trim() ||
+          user.displayName ||
+          'Anonymous',
+
         company: company.trim(),
         message: message.trim(),
         rating,
+
         approved: false,
-        photoURL: user.photoURL || '',
+
         email: user.email,
+        photoURL: user.photoURL || '',
+
         createdAt: serverTimestamp(),
       });
 
-      setMessage('');
       setCompany('');
+      setMessage('');
       setRating(5);
-      setStatusMessage('Thanks! Your testimonial is submitted for review.');
+
+      setStatusMessage(
+        'Thanks! Your testimonial has been submitted for approval.'
+      );
       setStatusType('success');
     } catch (error) {
-      setStatusMessage('Unable to submit testimonial. Please try again later.');
+      console.error('Submit Error:', error);
+
+      setStatusMessage(error.message);
       setStatusType('error');
     } finally {
       setSubmitting(false);
@@ -127,9 +171,20 @@ const Testimonials = () => {
 
   const approveTestimonial = async (id) => {
     try {
-      await updateDoc(doc(db, 'testimonials', id), { approved: true });
+      await updateDoc(
+        doc(db, 'testimonials', id),
+        {
+          approved: true,
+        }
+      );
+
+      setStatusMessage('Testimonial approved.');
+      setStatusType('success');
     } catch (error) {
-      console.error('Approve failed', error);
+      console.error(error);
+
+      setStatusMessage('Approval failed.');
+      setStatusType('error');
     }
   };
 
@@ -138,25 +193,48 @@ const Testimonials = () => {
       <div className="container">
         <div className={styles.heroBlock}>
           <div>
-            <h2>Submit your testimonial</h2>
+            <h2>Submit Your Testimonial</h2>
+
             <p>
-              Clients sign in with Google and submit their testimonial here. This page is only for posting, not viewing reviews.
+              Sign in with Google and share your
+              experience. Testimonials are reviewed
+              before being published.
             </p>
           </div>
+
           <div className={styles.ctaRow}>
             {user ? (
-              <button className="btn btn-secondary" type="button" onClick={handleSignOut}>
-                Sign out
-              </button>
+              <>
+                <button
+                  className="btn btn-secondary"
+                  onClick={handleSignOut}
+                >
+                  Sign Out
+                </button>
+
+                <span className={styles.signedIn}>
+                  Signed in as{' '}
+                  {user.displayName || user.email}
+                </span>
+              </>
             ) : (
-              <button className="btn btn-primary" type="button" onClick={handleSignIn}>
-                Sign in with Google
+              <button
+                className="btn btn-primary"
+                onClick={handleSignIn}
+              >
+                Sign In With Google
               </button>
             )}
-            {user && <span className={styles.signedIn}>Signed in as {user.displayName || user.email}</span>}
           </div>
+
           {statusMessage && (
-            <p className={statusType === 'error' ? styles.errorMessage : styles.successMessage}>
+            <p
+              className={
+                statusType === 'error'
+                  ? styles.errorMessage
+                  : styles.successMessage
+              }
+            >
               {statusMessage}
             </p>
           )}
@@ -165,17 +243,17 @@ const Testimonials = () => {
         <div className={styles.gridLayout}>
           <div className={styles.formCard}>
             <h3>Submit a Testimonial</h3>
-            <p className={styles.formHint}>
-              Members must sign in with Google. Submissions are held for your review before they appear publicly.
-            </p>
+
             <form onSubmit={handleSubmit}>
               <label>
                 Name
                 <input
                   type="text"
                   value={name}
-                  onChange={(event) => setName(event.target.value)}
-                  placeholder="Your name"
+                  onChange={(e) =>
+                    setName(e.target.value)
+                  }
+                  placeholder="Your Name"
                 />
               </label>
 
@@ -184,8 +262,10 @@ const Testimonials = () => {
                 <input
                   type="text"
                   value={company}
-                  onChange={(event) => setCompany(event.target.value)}
-                  placeholder="XYZ Technologies"
+                  onChange={(e) =>
+                    setCompany(e.target.value)
+                  }
+                  placeholder="ABC Technologies"
                 />
               </label>
 
@@ -193,20 +273,29 @@ const Testimonials = () => {
                 Testimonial
                 <textarea
                   value={message}
-                  onChange={(event) => setMessage(event.target.value)}
-                  placeholder="Share your experience in 1-2 sentences"
+                  onChange={(e) =>
+                    setMessage(e.target.value)
+                  }
+                  placeholder="Share your experience..."
                 />
               </label>
 
               <div className={styles.starRating}>
                 <span>Rating</span>
+
                 <div className={styles.ratingOptions}>
-                  {[5, 4, 3].map((value) => (
+                  {[5, 4, 3, 2, 1].map((value) => (
                     <button
                       key={value}
                       type="button"
-                      className={`${styles.ratingButton} ${value === rating ? styles.active : ''}`}
-                      onClick={() => setRating(value)}
+                      className={`${styles.ratingButton} ${
+                        rating === value
+                          ? styles.active
+                          : ''
+                      }`}
+                      onClick={() =>
+                        setRating(value)
+                      }
                     >
                       {starText(value)}
                     </button>
@@ -214,72 +303,119 @@ const Testimonials = () => {
                 </div>
               </div>
 
-              <button type="submit" className="btn btn-primary" disabled={submitting}>
-                {submitting ? 'Submitting...' : 'Send Testimonial'}
+              <button
+                type="submit"
+                className="btn btn-primary"
+                disabled={submitting}
+              >
+                {submitting
+                  ? 'Submitting...'
+                  : 'Send Testimonial'}
               </button>
             </form>
           </div>
 
           <div className={styles.previewCard}>
-            <h3>Example Display</h3>
+            <h3>Example Testimonial</h3>
+
             <div className={styles.testimonialCard}>
-              <div className={styles.testimonialStars}>{starText(5)}</div>
+              <div className={styles.testimonialStars}>
+                ⭐⭐⭐⭐⭐
+              </div>
+
               <p className={styles.quoteText}>
-                "Adithyan delivered our company website ahead of schedule. Communication was excellent and the final product exceeded expectations."
+                "Adithyan delivered our website ahead
+                of schedule. Excellent communication
+                and professional work."
               </p>
+
               <div className={styles.clientMeta}>
                 <div className={styles.clientAvatar}>
                   <img
                     src="https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&s=80"
-                    alt="Google avatar placeholder"
+                    alt="Client"
                   />
                 </div>
+
                 <div className={styles.clientDetails}>
-                  <span className={styles.clientName}>John Mathew</span>
-                  <span className={styles.clientCompany}>XYZ Technologies</span>
+                  <span className={styles.clientName}>
+                    John Mathew
+                  </span>
+
+                  <span
+                    className={
+                      styles.clientCompany
+                    }
+                  >
+                    XYZ Technologies
+                  </span>
                 </div>
               </div>
             </div>
-            <p className={styles.formHint}>
-              Approved testimonials will automatically show on this page once you review them.
-            </p>
           </div>
         </div>
 
         {user?.email === ADMIN_EMAIL && (
           <div className={styles.adminPanel}>
             <h3>Admin Review Queue</h3>
+
             {pending.length === 0 ? (
-              <p className={styles.formHint}>No testimonials waiting for approval.</p>
+              <p>No testimonials waiting.</p>
             ) : (
               pending.map((item) => (
-                <div key={item.id} className={styles.adminCard}>
+                <div
+                  key={item.id}
+                  className={styles.adminCard}
+                >
                   <div className={styles.adminMeta}>
                     <div>
-                      <p className={styles.clientName}>{item.name}</p>
-                      <p className={styles.clientCompany}>{item.company}</p>
+                      <p className={styles.clientName}>
+                        {item.name}
+                      </p>
+
+                      <p
+                        className={
+                          styles.clientCompany
+                        }
+                      >
+                        {item.company}
+                      </p>
                     </div>
+
                     <button
-                      type="button"
                       className="btn btn-primary"
-                      onClick={() => approveTestimonial(item.id)}
+                      onClick={() =>
+                        approveTestimonial(item.id)
+                      }
                     >
                       Approve
                     </button>
                   </div>
-                  <p className={styles.quoteText}>&quot;{item.message}&quot;</p>
-                  <p className={styles.formHint}>Rating: {starText(item.rating || 5)}</p>
+
+                  <p className={styles.quoteText}>
+                    "{item.message}"
+                  </p>
+
+                  <p>
+                    Rating:{' '}
+                    {starText(item.rating)}
+                  </p>
                 </div>
               ))
             )}
-            <p className={styles.formHint}>
-              Use the admin account to approve testimonials directly in the browser.
-            </p>
           </div>
         )}
 
-        <div style={{ marginTop: '3rem', color: 'var(--text-secondary)' }}>
-          Need help? <Link to="/contact">Contact me</Link> for integration support.
+        <div
+          style={{
+            marginTop: '3rem',
+            color: 'var(--text-secondary)',
+          }}
+        >
+          Need help?{' '}
+          <Link to="/contact">
+            Contact me
+          </Link>
         </div>
       </div>
     </section>
