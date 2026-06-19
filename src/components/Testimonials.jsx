@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { auth, db, googleProvider } from '../firebase';
+import styles from './Testimonials.module.css';
+
 import {
   signInWithPopup,
   signOut,
   onAuthStateChanged,
 } from 'firebase/auth';
+
 import {
   collection,
   addDoc,
@@ -38,6 +41,13 @@ const Testimonials = () => {
       setPending([]);
       return undefined;
     }
+    useEffect(() => {
+  const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+    setUser(currentUser);
+  });
+
+  return () => unsubscribe();
+}, []);
 
     const pendingQuery = query(
       collection(db, 'testimonials'),
