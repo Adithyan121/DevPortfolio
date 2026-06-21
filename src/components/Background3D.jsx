@@ -94,7 +94,7 @@ const Background3D = () => {
       )}
 
       <motion.img
-        src="/satellite.png"
+        src="/satellite.webp"
         alt="Satellite"
         initial={{ x: '-20vw', y: '30vh', rotate: 15 }}
         animate={{ x: '120vw', y: '15vh', rotate: -5 }}
@@ -131,7 +131,7 @@ const Background3D = () => {
         }}
       >
         <img
-          src="/moon.png"
+          src="/moon.webp"
           alt="Moon"
           style={{ width: '100%', height: '100%', objectFit: 'contain' }}
           onError={(e) => {

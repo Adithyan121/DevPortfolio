@@ -1,19 +1,41 @@
 .timeline {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  max-width: 800px;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(200px, 1fr));
+  gap: 1.5rem;
   margin: 3rem auto 0;
   position: relative;
+  overflow-x: auto;
+  padding: 3rem 0.5rem 1.5rem;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Custom scrollbar styling for a premium look */
+.timeline::-webkit-scrollbar {
+  height: 6px;
+}
+
+.timeline::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 3px;
+}
+
+.timeline::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+}
+
+.timeline::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
 }
 
 .timeline::before {
   content: '';
   position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 30px;
-  width: 2px;
+  top: 30px;
+  left: 0;
+  width: 1096px; /* Spans the scrollable width of 5 cards (5 * 200 + 4 * 24px gap) */
+  height: 2px;
   background: var(--border);
   z-index: 0;
 }
@@ -23,19 +45,20 @@
   backdrop-filter: blur(10px);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  padding: 2rem;
+  padding: 1.25rem;
   display: flex;
   flex-direction: column;
   position: relative;
   z-index: 1;
-  margin-left: 60px;
+  margin-left: 0;
+  scroll-snap-align: start;
 }
 
 .iconContainer {
   position: absolute;
-  left: -60px;
-  top: 50%;
-  transform: translateY(-50%);
+  left: 50%;
+  top: 30px;
+  transform: translateX(-50%) translateY(-50%);
   width: 60px;
   display: flex;
   justify-content: center;
@@ -52,21 +75,25 @@
 }
 
 .stepTitle {
-  font-size: 1.25rem;
+  font-size: 1.1rem;
   margin-bottom: 0.5rem;
+  margin-top: 1rem;
+  text-align: center;
 }
 
 .stepDesc {
   color: var(--text-secondary);
-  line-height: 1.6;
+  line-height: 1.5;
+  font-size: 0.85rem;
+  text-align: center;
 }
 
 @media (min-width: 768px) {
   .timeline {
-    display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 1rem;
-    margin-top: 4rem;
+    overflow-x: visible;
+    padding: 4rem 0 0;
+    max-width: 1200px;
   }
   
   .timeline::before {
@@ -79,7 +106,6 @@
   }
 
   .stepCard {
-    margin-left: 0;
     padding: 1.5rem;
     padding-top: 4rem;
   }
@@ -88,5 +114,16 @@
     left: 50%;
     top: 30px;
     transform: translateX(-50%) translateY(-50%);
+  }
+
+  .stepTitle {
+    font-size: 1.25rem;
+    margin-top: 0;
+    text-align: left;
+  }
+
+  .stepDesc {
+    font-size: 0.95rem;
+    text-align: left;
   }
 }

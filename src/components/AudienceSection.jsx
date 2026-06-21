@@ -34,7 +34,7 @@ const AudienceSection = () => {
           </p>
         </div>
 
-        <div className={styles.cardsGrid}>
+        <div className={`${styles.cardsGrid} ${styles.audienceGrid}`}>
           {audiences.map((item, index) => (
             <motion.div 
               key={index}

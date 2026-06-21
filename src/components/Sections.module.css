@@ -134,8 +134,77 @@
     font-size: 2rem;
   }
 
+  /* Cards Grid Mobile overrides (Audience and Services) */
+  .cardsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  .cardsGrid :global(.card) {
+    padding: 1.25rem;
+  }
+
+  .cardTitle {
+    font-size: 1.15rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .cardText {
+    font-size: 0.85rem;
+    line-height: 1.45;
+  }
+
+  .iconWrapper {
+    width: 45px;
+    height: 45px;
+    margin-bottom: 1rem;
+  }
+
+  .iconWrapper > svg {
+    width: 22px !important;
+    height: 22px !important;
+  }
+
+  /* Audience specific balancing */
+  .audienceGrid > div:last-child {
+    grid-column: span 2;
+  }
+
+  /* Problem Solution mobile overrides */
   .psGrid {
-    grid-template-columns: 1fr;
-    gap: 2rem;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  .problemBox,
+  .solutionBox {
+    padding: 1.25rem;
+  }
+
+  .psTitle {
+    font-size: 1.15rem;
+    margin-bottom: 1rem;
+    gap: 0.5rem;
+  }
+
+  .psTitle > svg {
+    width: 20px !important;
+    height: 20px !important;
+  }
+
+  .list {
+    gap: 0.75rem;
+  }
+
+  .listItem {
+    font-size: 0.85rem;
+    gap: 0.5rem;
+  }
+
+  .listItemIcon {
+    width: 16px !important;
+    height: 16px !important;
   }
 }

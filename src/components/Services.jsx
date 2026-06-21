@@ -5,37 +5,37 @@ import styles from './Sections.module.css';
 const Services = () => {
   const services = [
     {
-      title: "Custom Website Development",
-      description: "Fast, reliable, and secure websites built from scratch. I guarantee 99.9% uptime and sub-second load times using modern web technologies."
-    },
-    {
-      title: "Landing Page Design",
-      description: "High-converting landing pages designed to capture leads, sell products, and grow your audience with up to 30% improved conversion rates."
-    },
-    {
-      title: "Portfolio Website",
-      description: "Beautiful digital portfolios tailored for creatives and freelancers. Stand out online and land clients with a premium 100/100 Lighthouse score design."
-    },
-    {
-      title: "Website Redesign",
-      description: "Breathe new life into your old website. I completely revamp the UI/UX design and improve page load speeds by 40% on average."
-    },
-    {
-      title: "Responsive UI Development",
-      description: "Pixel-perfect frontend development using React. Ensuring your site is 100% mobile-friendly and looks stunning on smartphones, tablets, and desktops."
-    },
-    {
-      title: "Startup & Small Business Websites",
-      description: "Affordable website solutions tailored for startups, small businesses, restaurants, gyms, and real estate agencies in Kerala with transparent pricing."
-    },
-    {
-      title: "React & MERN Stack Development",
-      description: "Scalable full stack web applications using React, Node.js, and MongoDB. Secure, robust data handling for comprehensive business needs."
-    },
-    {
-      title: "SEO, AEO & Performance Optimization",
-      description: "Implementation of Generative Engine Optimization (GEO) and Answer Engine Optimization (AEO) to ensure your site is ranked accurately by AI search engines."
-    }
+  title: "Custom Website Development",
+  description: "Fast, secure custom websites built from scratch with modern technologies and reliable performance."
+},
+{
+  title: "Landing Page Design",
+  description: "High-converting landing pages designed to generate leads, boost sales, and grow your audience."
+},
+{
+  title: "Portfolio Website",
+  description: "Premium portfolio websites for creatives and freelancers to showcase work and attract clients."
+},
+{
+  title: "Website Redesign",
+  description: "Modern website redesigns that improve UI/UX, performance, and overall user engagement."
+},
+{
+  title: "Responsive UI Development",
+  description: "Pixel-perfect React frontends that deliver seamless experiences across all devices."
+},
+{
+  title: "Startup & Small Business Websites",
+  description: "Affordable websites for startups and local businesses with transparent pricing."
+},
+{
+  title: "React & MERN Stack Development",
+  description: "Scalable full-stack applications built with React, Node.js, and MongoDB."
+},
+{
+  title: "SEO, AEO & Performance Optimization",
+  description: "SEO, GEO, and AEO strategies to improve visibility, rankings, and site performance."
+}
   ];
 
   return (
