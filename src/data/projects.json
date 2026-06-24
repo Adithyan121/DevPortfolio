@@ -9,12 +9,21 @@
     "codeUrl": "https://github.com/Adithyan121/Portfolio.git"
   },
   {
-    "id": 1,
+    "id": 2,
     "title": "Portfolio Website",
     "image":"https://i.postimg.cc/6QdLm23k/Screenshot-2026-06-18-204834.png",
     "description": "A custom portfolio platform created for a client to strengthen their online presence, showcase expertise, and attract potential customers through a clean and professional design.",
     "tech": ["React JS","Email JS","cs"],
     "demoUrl": "https://anandhu-s-portfolio.vercel.app/",
     "codeUrl": "https://github.com/Anandhu35-MK/Anandhu-s-Portfolio.git"
-  }
+  },
+  {
+  "id": 3,
+  "title": "Mobile Shop Business Website",
+  "image": "https://i.postimg.cc/ZqGBqJB8/Screenshot-2026-06-24-174238.png",
+  "description": "A modern business website developed for a mobile phone sales and repair shop to establish a strong online presence, showcase products and services, highlight repair expertise, and generate customer inquiries through an engaging and professional user experience.",
+  "tech": ["React JS", "Email JS", "CSS", "JavaScript"],
+  "demoUrl": "https://smart-fix-three.vercel.app/",
+  "codeUrl": "PRIVATE"
+}
 ]
